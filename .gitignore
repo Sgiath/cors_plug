@@ -24,3 +24,6 @@ cors_plug-*.tar
 
 # Temporary files for e.g. tests
 /tmp
+
+# LSP servers
+/.expert/
