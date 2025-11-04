@@ -7,10 +7,10 @@ jobs:
     name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
     strategy:
       matrix:
-        otp: [22, 23, 24]
-        elixir: [1.11, 1.12, 1.13]
+        otp: [26, 27, 28]
+        elixir: [1.15, 1.16, 1.17, 1.18, 1.19]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - uses: erlef/setup-beam@v1
         with:
           otp-version: ${{matrix.otp}}

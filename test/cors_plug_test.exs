@@ -1,7 +1,8 @@
 defmodule CORSPlugTest do
   use ExUnit.Case, async: true
-  use Plug.Test
+
   import Plug.Conn, only: [get_resp_header: 2, put_req_header: 3]
+  import Plug.Test
 
   test "returns the right options for regular requests" do
     opts = CORSPlug.init([])
