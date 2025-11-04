@@ -110,6 +110,12 @@ defmodule CORSPlug do
     Enum.join(key, ",")
   end
 
+  # Elixir 1.19 does not allow regex definition in the configuration
+  defp origin({:regex, source, modifiers}, conn) do
+    regex = Regex.compile!(source, modifiers)
+    origin(regex, conn)
+  end
+
   # return origin if it matches regex, otherwise nil
   defp origin(%Regex{} = regex, conn) do
     req_origin = conn |> request_origin() |> to_string()

@@ -178,6 +178,18 @@ defmodule CORSPlugTest do
     assert [] == get_resp_header(conn, "access-control-allow-origin")
   end
 
+  test "returns the origin when origin matches origin option regex tuple" do
+    opts = CORSPlug.init(origin: {:regex, "^example.+\\.com$", ""})
+
+    conn =
+      :get
+      |> conn("/")
+      |> put_req_header("origin", "example42.com")
+      |> CORSPlug.call(opts)
+
+    assert assert ["example42.com"] == get_resp_header(conn, "access-control-allow-origin")
+  end
+
   test "returns the origin when origin matches origin option regex" do
     opts = CORSPlug.init(origin: ~r/^example.+\.com$/)
 
