@@ -8,7 +8,7 @@ defmodule CorsPlug.Mixfile do
     [
       app: :cors_plug,
       version: @version,
-      elixir: "~> 1.11",
+      elixir: "~> 1.15",
       deps: deps(),
       package: package(),
       description: description(),
@@ -28,9 +28,9 @@ defmodule CorsPlug.Mixfile do
 
   defp deps do
     [
-      {:plug, "~> 1.13"},
-      {:ex_doc, "~> 0.28.0", only: :dev, runtime: false},
-      {:mix_test_watch, "~> 1.1", only: :test}
+      {:plug, "~> 1.18"},
+      {:ex_doc, "~> 0.39", only: :dev, runtime: false},
+      {:mix_test_watch, "~> 1.4", only: :test}
     ]
   end
 
